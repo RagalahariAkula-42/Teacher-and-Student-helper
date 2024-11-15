@@ -29,6 +29,9 @@ RUN pip install --upgrade pip setuptools wheel
 RUN pip install -r requirements.txt
 
 
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
+
 # Define environment variable
 ENV NAME World
 
