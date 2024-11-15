@@ -1,0 +1,11 @@
+opencv-python
+mediapipe
+numpy
+python-dotenv
+streamlit
+pdfplumber
+python-docx
+fpdf
+google-generativeai
+Flask
+flask-cors
