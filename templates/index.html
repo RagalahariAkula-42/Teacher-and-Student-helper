@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Home</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .icon-container {
+        display: flex;
+        gap: 20px;
+        text-align: center;
+      }
+      .icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        color: white;
+        font-size: 36px;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+      .icon:hover {
+        transform: scale(1.1);
+      }
+      .chatbot-icon {
+        background-color: #4caf50;
+      }
+      .search-icon {
+        background-color: #2196f3;
+      }
+      .mcq-icon {
+        background-color: #f1ff2b;
+      }
+      .painter-icon {
+        background-color: #ff5722;
+      }
+      .icon-name {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="icon-container">
+      <!-- Chatbot Icon -->
+      <div class="icon chatbot-icon" title="Start Chatbot" id="chatbot-icon">
+        &#128172;
+        <span class="icon-name">Chatbot</span>
+      </div>
+
+      <script>
+        document
+          .getElementById("chatbot-icon")
+          .addEventListener("click", function () {
+            fetch("/chatbot")
+              .then((response) => {
+                window.location.reload();
+              })
+              .catch((error) => console.error("Error opening chatbot:", error));
+          });
+      </script>
+
+      <!-- Search Icon -->
+      <a
+        href="https://cse.google.com/cse?cx=010288208e57546be"
+        class="icon search-icon"
+        title="Go to Search"
+        target="_blank"
+      >
+        &#128269;
+        <span class="icon-name">Search</span>
+      </a>
+
+      <!-- MCQ Generation Icon with White Question Mark -->
+      <div class="icon mcq-icon" title="Generate MCQs" id="mcq-icon">
+        &#10067;
+        <span class="icon-name">MCQ Gen</span>
+      </div>
+
+      <script>
+        document
+          .getElementById("mcq-icon")
+          .addEventListener("click", function () {
+            fetch("/mcq_generation")
+              .then((response) => {
+                window.location.reload();
+              })
+              .catch((error) => console.error("Error generating MCQs:", error));
+          });
+      </script>
+
+      <!-- Virtual Painter Icon -->
+      <div
+        class="icon painter-icon"
+        title="Virtual Painter"
+        id="virtual-painter-icon"
+      >
+        &#127912;
+        <span class="icon-name">Painter</span>
+      </div>
+
+      <script>
+        document
+          .getElementById("virtual-painter-icon")
+          .addEventListener("click", function () {
+            fetch("/VirtualPainter", { method: "POST" })
+              .then((response) => {
+                window.location.reload();
+              })
+              .catch((error) =>
+                console.error("Error launching Virtual Painter:", error)
+              );
+          });
+      </script>
+    </div>
+  </body>
+</html>
