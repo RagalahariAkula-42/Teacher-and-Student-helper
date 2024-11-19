@@ -15,7 +15,7 @@ def home():
 @cross_origin()
 def chatbot():
     # Launch Streamlit app in a non-blocking way (only if it isn't running already)
-    subprocess.Popen(["streamlit", "run", "./src/chatbot/qachat.py", "--server.port", "8081"])
+    subprocess.Popen(["streamlit", "run", "./src/chatbot/qachat.py"])
     # Redirect to home page
     return render_template('index.html')
 
@@ -23,7 +23,7 @@ def chatbot():
 @cross_origin()
 def mcq_generation():
     # Launch Streamlit app in a non-blocking way (only if it isn't running already)
-    subprocess.Popen(["streamlit", "run", "./src/mcq's_generator/mcq_generator.py", "--server.port", "8082"])
+    subprocess.Popen(["streamlit", "run", "./src/mcq's_generator/mcq_generator.py"])
     # Redirect to home page
     return render_template('index.html')
 
